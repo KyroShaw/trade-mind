@@ -1,0 +1,6 @@
+{
+  "extends": "@trade-mind/config/tsconfig.base.json",
+  "compilerOptions": {
+    "strictNullChecks": true
+  }
+}
