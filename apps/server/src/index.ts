@@ -1,5 +1,6 @@
 import { trpcServer } from "@hono/trpc-server";
 import { createContext } from "@trade-mind/api/context";
+import { refreshAlphaData } from "@trade-mind/api/routers/alpha";
 import { appRouter } from "@trade-mind/api/routers/index";
 import { refreshMarketData } from "@trade-mind/api/routers/market";
 import { auth } from "@trade-mind/auth";
@@ -56,4 +57,17 @@ setInterval(
 		});
 	},
 	30 * 60 * 1000
+);
+
+// Seed alpha data on startup and refresh daily at 00:00 UTC
+refreshAlphaData().catch((_err) => {
+	/* non-blocking */
+});
+setInterval(
+	() => {
+		refreshAlphaData().catch((_err) => {
+			/* non-blocking */
+		});
+	},
+	24 * 60 * 60 * 1000
 );

@@ -4,7 +4,7 @@
 
 ---
 
-## ALPHA-001：数据库 schema — alpha_projects + user_watchlist 表
+## ALPHA-001：数据库 schema — alpha_projects + user_watchlist 表 [x]
 
 - **任务类型**：feature
 - **执行角色**：database-engineer
@@ -24,7 +24,7 @@
 
 ---
 
-## ALPHA-002：后端 — Binance Alpha 数据抓取 + Cron + tRPC router
+## ALPHA-002：后端 — Binance Alpha 数据抓取 + Cron + tRPC router [REVIEWING]
 
 - **任务类型**：feature
 - **执行角色**：backend-engineer

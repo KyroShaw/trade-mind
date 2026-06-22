@@ -16,7 +16,7 @@ READY_TO_RUN
 | BRIEF | ✅ DONE | INIT-BRIEF.md 已生成 |
 | PLAN | ✅ DONE | 19 个任务，质量门 PASSED |
 | SCAFFOLD | ✅ READY | APP-SHELL-001 完成 |
-| RUN | 🔄 IN_PROGRESS | 9/19 任务完成 |
+| RUN | 🔄 IN_PROGRESS | 15/19 任务完成 |
 | RELEASE | ⏳ PENDING | — |
 
 ## 模块进度
@@ -26,11 +26,11 @@ READY_TO_RUN
 | app-shell | ✅ | ✅ | ✅ | ✅ | ✅ | 1/1 ✅ |
 | auth | ✅ | ✅ | ✅ | ✅ | ✅ | 4/4 ✅ |
 | market-research | ✅ | ✅ | ✅ | ✅ | ✅ | 3/3 ✅ |
-| alpha-tracker | ✅ | ✅ | ✅ | ✅ | ✅ | 0/3 |
+| alpha-tracker | ✅ | ✅ | ✅ | ✅ | ✅ | 1/3 |
 | order-review | ✅ | ✅ | ✅ | ✅ | ✅ | 5/5 ✅ |
 | fund-analysis | ✅ | ✅ | ✅ | ✅ | ✅ | 0/3 |
 
-**总进度**: 14 / 19 任务完成
+**总进度**: 15 / 19 任务完成
 
 ## 前端骨架
 
@@ -43,6 +43,7 @@ READY — APP-SHELL-001 已完成 (2026-06-22)
 - APP-SHELL-001: PASSED (`.wave/qa/app-shell/APP-SHELL-001-QA.md`)
 - AUTH-001~004: PASSED (`.wave/qa/auth/AUTH-001-004-QA.md`)
 - ORDER-001~005: PASSED (`.wave/qa/order-review/MODULE-QA.md`)
+- ALPHA-001: PASSED (`.wave/qa/alpha-tracker/ALPHA-001-QA.md`)
 
 ## 物料清单
 
