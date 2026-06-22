@@ -1,5 +1,13 @@
 import { relations } from "drizzle-orm";
-import { index, integer, numeric, pgTable, text, timestamp, uniqueIndex } from "drizzle-orm/pg-core";
+import {
+	index,
+	integer,
+	numeric,
+	pgTable,
+	text,
+	timestamp,
+	uniqueIndex,
+} from "drizzle-orm/pg-core";
 
 export const sectors = pgTable(
 	"sectors",
@@ -10,10 +18,13 @@ export const sectors = pgTable(
 		name: text("name").notNull(),
 		coinGeckoId: text("coingecko_id").notNull().unique(),
 		heatScore: integer("heat_score").default(0).notNull(),
-		dailyChangePercent: numeric("daily_change_percent", { precision: 10, scale: 4 }),
+		dailyChangePercent: numeric("daily_change_percent", {
+			precision: 10,
+			scale: 4,
+		}),
 		updatedAt: timestamp("updated_at").defaultNow().notNull(),
 	},
-	(table) => [index("sectors_updated_at_idx").on(table.updatedAt)],
+	(table) => [index("sectors_updated_at_idx").on(table.updatedAt)]
 );
 
 export const sectorCoins = pgTable(
@@ -28,14 +39,20 @@ export const sectorCoins = pgTable(
 		symbol: text("symbol").notNull(),
 		name: text("name").notNull(),
 		price: numeric("price", { precision: 20, scale: 8 }),
-		change24hPercent: numeric("change_24h_percent", { precision: 10, scale: 4 }),
+		change24hPercent: numeric("change_24h_percent", {
+			precision: 10,
+			scale: 4,
+		}),
 		rank: integer("rank").notNull(),
 		updatedAt: timestamp("updated_at").defaultNow().notNull(),
 	},
 	(table) => [
 		index("sector_coins_sector_id_idx").on(table.sectorId),
-		uniqueIndex("sector_coins_sector_symbol_idx").on(table.sectorId, table.symbol),
-	],
+		uniqueIndex("sector_coins_sector_symbol_idx").on(
+			table.sectorId,
+			table.symbol
+		),
+	]
 );
 
 export const newsItems = pgTable(
@@ -56,7 +73,7 @@ export const newsItems = pgTable(
 	(table) => [
 		index("news_items_published_at_idx").on(table.publishedAt),
 		index("news_items_external_id_idx").on(table.externalId),
-	],
+	]
 );
 
 export const sectorRelations = relations(sectors, ({ many }) => ({
