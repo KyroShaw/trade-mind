@@ -24,7 +24,7 @@
 
 ---
 
-## ALPHA-002：后端 — Binance Alpha 数据抓取 + Cron + tRPC router [REVIEWING]
+## ALPHA-002：后端 — Binance Alpha 数据抓取 + Cron + tRPC router [x]
 
 - **任务类型**：feature
 - **执行角色**：backend-engineer
@@ -47,7 +47,7 @@
 
 ---
 
-## ALPHA-003：前端 — Alpha 项目列表页
+## ALPHA-003：前端 — Alpha 项目列表页 [x]
 
 - **任务类型**：feature
 - **执行角色**：frontend-engineer

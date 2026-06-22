@@ -17,31 +17,29 @@ N8_CHECKPOINT（完成）
 ## 执行范围
 
 ```
-ALL_MODULE_TASKS — order-review
+ALL_MODULE_TASKS — alpha-tracker（完成）
 ```
 
 ## 调度队列
 
-1. ~~ORDER-001（database-engineer）~~ ✅
-2. ~~ORDER-002（backend-engineer）~~ ✅
-3. ~~ORDER-003（backend-engineer）~~ ✅
-4. ~~ORDER-004（frontend-engineer）~~ ✅
-5. ~~ORDER-005（frontend-engineer）~~ ✅
+1. ~~ALPHA-001（database-engineer）~~ ✅
+2. ~~ALPHA-002（backend-engineer）~~ ✅
+3. ~~ALPHA-003（frontend-engineer）~~ ✅
 
 ## 当前任务
 
 ```
-order-review 模块全部完成（ORDER-001~005）
+alpha-tracker 模块全部完成（ALPHA-001~003）
 ```
 
 ## 执行基线
 
-- Git commit：d224d42
-- 工作区状态：modified（ORDER-004~005 完成，待提交）
-- 模式：--all（order-review 模块）
+- Git commit：cd277d5（最后提交基线）
+- 工作区状态：modified（ALPHA-003 完成，待提交）
+- 模式：--all（alpha-tracker 模块）
 
 ## 恢复命令
 
 ```bash
-/sw-run order-review --all
+/sw-run fund-analysis --all
 ```

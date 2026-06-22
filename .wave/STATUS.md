@@ -26,11 +26,11 @@ READY_TO_RUN
 | app-shell | ✅ | ✅ | ✅ | ✅ | ✅ | 1/1 ✅ |
 | auth | ✅ | ✅ | ✅ | ✅ | ✅ | 4/4 ✅ |
 | market-research | ✅ | ✅ | ✅ | ✅ | ✅ | 3/3 ✅ |
-| alpha-tracker | ✅ | ✅ | ✅ | ✅ | ✅ | 1/3 |
+| alpha-tracker | ✅ | ✅ | ✅ | ✅ | ✅ | 3/3 ✅ |
 | order-review | ✅ | ✅ | ✅ | ✅ | ✅ | 5/5 ✅ |
 | fund-analysis | ✅ | ✅ | ✅ | ✅ | ✅ | 0/3 |
 
-**总进度**: 15 / 19 任务完成
+**总进度**: 17 / 19 任务完成
 
 ## 前端骨架
 
@@ -44,6 +44,8 @@ READY — APP-SHELL-001 已完成 (2026-06-22)
 - AUTH-001~004: PASSED (`.wave/qa/auth/AUTH-001-004-QA.md`)
 - ORDER-001~005: PASSED (`.wave/qa/order-review/MODULE-QA.md`)
 - ALPHA-001: PASSED (`.wave/qa/alpha-tracker/ALPHA-001-QA.md`)
+- ALPHA-002: PASSED (`.wave/qa/alpha-tracker/ALPHA-002-QA.md`)
+- ALPHA-003: PASSED (`.wave/qa/alpha-tracker/ALPHA-003-QA.md`)
 
 ## 物料清单
 
