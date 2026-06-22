@@ -1,5 +1,5 @@
 import { relations } from "drizzle-orm";
-import { pgTable, text, timestamp, boolean, index } from "drizzle-orm/pg-core";
+import { boolean, index, pgTable, text, timestamp, uniqueIndex } from "drizzle-orm/pg-core";
 
 export const user = pgTable("user", {
   id: text("id").primaryKey(),
@@ -73,9 +73,32 @@ export const verification = pgTable(
   (table) => [index("verification_identifier_idx").on(table.identifier)],
 );
 
+export const apiKeys = pgTable(
+	"api_keys",
+	{
+		id: text("id")
+			.primaryKey()
+			.$defaultFn(() => crypto.randomUUID()),
+		userId: text("user_id")
+			.notNull()
+			.references(() => user.id, { onDelete: "cascade" }),
+		encryptedKey: text("encrypted_key").notNull(),
+		encryptedSecret: text("encrypted_secret").notNull(),
+		binanceUid: text("binance_uid"),
+		isValid: boolean("is_valid").default(true).notNull(),
+		createdAt: timestamp("created_at").defaultNow().notNull(),
+		updatedAt: timestamp("updated_at")
+			.defaultNow()
+			.$onUpdate(() => new Date())
+			.notNull(),
+	},
+	(table) => [uniqueIndex("api_keys_user_id_idx").on(table.userId)],
+);
+
 export const userRelations = relations(user, ({ many }) => ({
-  sessions: many(session),
-  accounts: many(account),
+	sessions: many(session),
+	accounts: many(account),
+	apiKeys: many(apiKeys),
 }));
 
 export const sessionRelations = relations(session, ({ one }) => ({
@@ -86,8 +109,15 @@ export const sessionRelations = relations(session, ({ one }) => ({
 }));
 
 export const accountRelations = relations(account, ({ one }) => ({
-  user: one(user, {
-    fields: [account.userId],
-    references: [user.id],
-  }),
+	user: one(user, {
+		fields: [account.userId],
+		references: [user.id],
+	}),
+}));
+
+export const apiKeyRelations = relations(apiKeys, ({ one }) => ({
+	user: one(user, {
+		fields: [apiKeys.userId],
+		references: [user.id],
+	}),
 }));

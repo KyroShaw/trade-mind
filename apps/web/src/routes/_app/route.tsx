@@ -1,8 +1,11 @@
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
 import { Button } from "@trade-mind/ui/components/button";
 import { createContext, useContext } from "react";
 
 import Sidebar from "@/components/layout/sidebar";
+import { authClient } from "@/lib/auth-client";
+import { trpc } from "@/utils/trpc";
 
 interface AppContextValue {
 	apiKeyBound: boolean;
@@ -17,15 +20,22 @@ export const Route = createFileRoute("/_app")({
 });
 
 function AppLayout() {
-	// apiKeyBound 占位 false — AUTH-004 任务完成后将接入 trpc.apiKey.getStatus()
-	const apiKeyBound = false;
+	const { data: sessionData } = authClient.useSession();
+	const isLoggedIn = !!sessionData?.session;
+
+	const { data: keyStatus } = useQuery({
+		...trpc.apiKey.getStatus.queryOptions(),
+		enabled: isLoggedIn,
+	});
+
+	const apiKeyBound = !!keyStatus?.bound;
 
 	return (
 		<AppContext.Provider value={{ apiKeyBound }}>
 			<div className="flex h-svh overflow-hidden">
 				<Sidebar />
 				<div className="flex flex-1 flex-col overflow-hidden">
-					{!apiKeyBound && <ApiKeyBanner />}
+					{isLoggedIn && !apiKeyBound && <ApiKeyBanner />}
 					<main className="flex-1 overflow-auto">
 						<Outlet />
 					</main>
