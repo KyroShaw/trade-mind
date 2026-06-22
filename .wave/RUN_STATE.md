@@ -11,33 +11,35 @@ IDLE
 ## 当前节点
 
 ```
-N8_CHECKPOINT（auth 模块完成）
+N8_CHECKPOINT（完成）
 ```
 
-## 上一个完成模块
+## 执行范围
 
 ```
-auth — AUTH-001~004 全部 [x] DONE
+ALL_MODULE_TASKS — market-research
 ```
 
-## 完成摘要
+## 调度队列
 
-- **AUTH-001**: `api_keys` 表 + `ENCRYPTION_KEY` env
-- **AUTH-002**: tRPC `apiKeyRouter`（bind/unbind/getStatus），AES-256-GCM + Binance 验证
-- **AUTH-003**: login/register beforeLoad 重定向，Card 布局 + Alert 错误展示，注册 confirmPassword
-- **AUTH-004**: settings 页完整绑定 UI，AppLayout 接入 getStatus query
+1. ~~MARKET-001（database-engineer）~~ ✅
+2. ~~MARKET-002（backend-engineer）~~ ✅
+3. ~~MARKET-003（frontend-engineer）~~ ✅
 
-**Build**: PASS | **Typecheck**: PASS | **Lint**: PASS
-**QA**: PASSED (`.wave/qa/auth/AUTH-001-004-QA.md`)
+## 当前任务
+
+```
+market-research 模块全部完成
+```
 
 ## 执行基线
 
-- Git commit：940b8fb（开始基线）
-- 工作区状态：未提交（待用户提交）
+- Git commit：675e409
+- 工作区状态：modified（MARKET-001~003 完成，待提交）
+- 模式：--all（market-research 模块）
 
 ## 恢复命令
 
 ```bash
-# auth 完成，继续下一模块：
-/sw-run market-research --all
+/sw-run order-review --all
 ```

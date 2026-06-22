@@ -11,6 +11,10 @@ export const env = createEnv({
     NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
     // 32-byte key encoded as 64-char hex string, used for AES-256-GCM encryption
     ENCRYPTION_KEY: z.string().length(64),
+    // External API keys for market data (optional in dev, required in prod)
+    ANTHROPIC_API_KEY: z.string().min(1),
+    CRYPTOPANIC_API_KEY: z.string().min(1),
+    COINGECKO_API_KEY: z.string().optional(),
   },
   runtimeEnv: process.env,
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,
