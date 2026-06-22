@@ -16,7 +16,7 @@ READY_TO_RUN
 | BRIEF | ✅ DONE | INIT-BRIEF.md 已生成 |
 | PLAN | ✅ DONE | 19 个任务，质量门 PASSED |
 | SCAFFOLD | ✅ READY | APP-SHELL-001 完成 |
-| RUN | 🔄 IN_PROGRESS | 15/19 任务完成 |
+| RUN | ✅ DONE | 19/19 任务完成 |
 | RELEASE | ⏳ PENDING | — |
 
 ## 模块进度
@@ -28,9 +28,9 @@ READY_TO_RUN
 | market-research | ✅ | ✅ | ✅ | ✅ | ✅ | 3/3 ✅ |
 | alpha-tracker | ✅ | ✅ | ✅ | ✅ | ✅ | 3/3 ✅ |
 | order-review | ✅ | ✅ | ✅ | ✅ | ✅ | 5/5 ✅ |
-| fund-analysis | ✅ | ✅ | ✅ | ✅ | ✅ | 0/3 |
+| fund-analysis | ✅ | ✅ | ✅ | ✅ | ✅ | 3/3 ✅ |
 
-**总进度**: 17 / 19 任务完成
+**总进度**: 19 / 19 任务完成 🎉
 
 ## 前端骨架
 
@@ -46,6 +46,10 @@ READY — APP-SHELL-001 已完成 (2026-06-22)
 - ALPHA-001: PASSED (`.wave/qa/alpha-tracker/ALPHA-001-QA.md`)
 - ALPHA-002: PASSED (`.wave/qa/alpha-tracker/ALPHA-002-QA.md`)
 - ALPHA-003: PASSED (`.wave/qa/alpha-tracker/ALPHA-003-QA.md`)
+- ANALYSIS-001: PASSED (`.wave/qa/fund-analysis/ANALYSIS-001-QA.md`)
+- ANALYSIS-002: PASSED (`.wave/qa/fund-analysis/ANALYSIS-002-QA.md`)
+- ANALYSIS-003: PASSED (`.wave/qa/fund-analysis/ANALYSIS-003-QA.md`)
+- fund-analysis MODULE: PASSED (`.wave/qa/fund-analysis/MODULE-QA.md`)
 
 ## 物料清单
 
@@ -61,12 +65,11 @@ READY — APP-SHELL-001 已完成 (2026-06-22)
 | `.wave/specs/*/UI.md` | ✅ 全部 READY |
 | `.wave/specs/*/ARCH.md` | ✅ 全部 READY |
 | `.wave/specs/*/SPEC.md` | ✅ 全部 READY |
-| `.wave/specs/*/TASKS.md` | ✅ 全部 READY（19 个任务） |
+| `.wave/specs/*/TASKS.md` | ✅ 全部 READY（19 个任务，全部 [x]） |
 
 ## 下一步命令
 
 ```bash
-# order-review 模块完成，继续其他模块：
-/sw-run alpha-tracker --all      # Alpha 项目（ALPHA-001~003）
-/sw-run fund-analysis --all      # 资金曲线（ANALYSIS-001~003）
+# 全部 19 个任务已完成，可进入发布阶段：
+/sw-release   # 生成发布候选，执行最终 QA
 ```

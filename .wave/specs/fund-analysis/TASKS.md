@@ -4,7 +4,7 @@
 
 ---
 
-## ANALYSIS-001：数据库 schema — alert_settings 表
+## ANALYSIS-001：数据库 schema — alert_settings 表 [x]
 
 - **任务类型**：feature
 - **执行角色**：database-engineer
@@ -23,7 +23,7 @@
 
 ---
 
-## ANALYSIS-002：后端 — 曲线计算 + 预警检测 + tRPC router
+## ANALYSIS-002：后端 — 曲线计算 + 预警检测 + tRPC router [x]
 
 - **任务类型**：feature
 - **执行角色**：backend-engineer
@@ -46,7 +46,7 @@
 
 ---
 
-## ANALYSIS-003：前端 — 资金曲线分析页
+## ANALYSIS-003：前端 — 资金曲线分析页 [x]
 
 - **任务类型**：feature
 - **执行角色**：frontend-engineer

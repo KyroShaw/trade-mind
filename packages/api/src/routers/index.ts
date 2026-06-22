@@ -1,5 +1,6 @@
 import { publicProcedure, router } from "../index";
 import { alphaRouter } from "./alpha";
+import { analysisRouter } from "./analysis";
 import { apiKeyRouter } from "./apiKey";
 import { marketRouter } from "./market";
 import { ordersRouter } from "./orders";
@@ -12,5 +13,6 @@ export const appRouter = router({
 	market: marketRouter,
 	orders: ordersRouter,
 	alpha: alphaRouter,
+	analysis: analysisRouter,
 });
 export type AppRouter = typeof appRouter;

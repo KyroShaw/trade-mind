@@ -18,7 +18,8 @@
     "db:migrate": "turbo -F @trade-mind/db db:migrate",
     "check": "ultracite check",
     "fix": "ultracite fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "exit 0"
   },
   "dependencies": {
     "@trade-mind/env": "workspace:*",

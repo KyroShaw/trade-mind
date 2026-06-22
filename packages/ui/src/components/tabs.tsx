@@ -1,91 +1,101 @@
-import * as React from "react";
-
 import { cn } from "@trade-mind/ui/lib/utils";
+import {
+	type ComponentProps,
+	createContext,
+	useContext,
+	useState,
+} from "react";
 
-const TabsContext = React.createContext<{
-  value: string;
-  onValueChange: (value: string) => void;
-}>({ value: "", onValueChange: () => {} });
+const TabsContext = createContext<{
+	value: string;
+	onValueChange: (value: string) => void;
+}>({ value: "", onValueChange: (_v: string) => undefined });
 
-interface TabsProps extends React.ComponentProps<"div"> {
-  defaultValue?: string;
-  value?: string;
-  onValueChange?: (value: string) => void;
+interface TabsProps extends ComponentProps<"div"> {
+	defaultValue?: string;
+	onValueChange?: (value: string) => void;
+	value?: string;
 }
 
 function Tabs({
-  className,
-  defaultValue,
-  value: controlledValue,
-  onValueChange,
-  ...props
+	className,
+	defaultValue,
+	value: controlledValue,
+	onValueChange,
+	...props
 }: TabsProps) {
-  const [uncontrolled, setUncontrolled] = React.useState(defaultValue ?? "");
-  const value = controlledValue ?? uncontrolled;
-  const handleChange = onValueChange ?? setUncontrolled;
+	const [uncontrolled, setUncontrolled] = useState(defaultValue ?? "");
+	const value = controlledValue ?? uncontrolled;
+	const handleChange = onValueChange ?? setUncontrolled;
 
-  return (
-    <TabsContext.Provider value={{ value, onValueChange: handleChange }}>
-      <div data-slot="tabs" className={cn("flex flex-col gap-2", className)} {...props} />
-    </TabsContext.Provider>
-  );
+	return (
+		<TabsContext.Provider value={{ value, onValueChange: handleChange }}>
+			<div
+				className={cn("flex flex-col gap-2", className)}
+				data-slot="tabs"
+				{...props}
+			/>
+		</TabsContext.Provider>
+	);
 }
 
-function TabsList({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="tabs-list"
-      role="tablist"
-      className={cn("flex h-8 items-center gap-1 border-b", className)}
-      {...props}
-    />
-  );
+function TabsList({ className, ...props }: ComponentProps<"div">) {
+	return (
+		<div
+			className={cn("flex h-8 items-center gap-1 border-b", className)}
+			data-slot="tabs-list"
+			role="tablist"
+			{...props}
+		/>
+	);
 }
 
 function TabsTrigger({
-  className,
-  value,
-  children,
-  ...props
-}: React.ComponentProps<"button"> & { value: string }) {
-  const ctx = React.useContext(TabsContext);
-  const isSelected = ctx.value === value;
+	className,
+	value,
+	children,
+	...props
+}: ComponentProps<"button"> & { value: string }) {
+	const ctx = useContext(TabsContext);
+	const isSelected = ctx.value === value;
 
-  return (
-    <button
-      type="button"
-      data-slot="tabs-trigger"
-      role="tab"
-      aria-selected={isSelected}
-      data-selected={isSelected || undefined}
-      onClick={() => ctx.onValueChange(value)}
-      className={cn(
-        "relative h-full px-3 text-xs font-medium text-muted-foreground transition-colors outline-none hover:text-foreground focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 data-[selected]:text-foreground after:absolute after:inset-x-0 after:bottom-[-1px] after:h-px after:bg-foreground data-[selected]:after:block after:hidden",
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </button>
-  );
+	return (
+		<button
+			aria-selected={isSelected}
+			className={cn(
+				"relative h-full px-3 font-medium text-muted-foreground text-xs outline-none transition-colors after:absolute after:inset-x-0 after:bottom-[-1px] after:hidden after:h-px after:bg-foreground hover:text-foreground focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 data-[selected]:text-foreground data-[selected]:after:block",
+				className
+			)}
+			data-selected={isSelected || undefined}
+			data-slot="tabs-trigger"
+			onClick={() => ctx.onValueChange(value)}
+			role="tab"
+			type="button"
+			{...props}
+		>
+			{children}
+		</button>
+	);
 }
 
 function TabsContent({
-  className,
-  value,
-  ...props
-}: React.ComponentProps<"div"> & { value: string }) {
-  const ctx = React.useContext(TabsContext);
-  if (ctx.value !== value) return null;
+	className,
+	value,
+	...props
+}: ComponentProps<"div"> & { value: string }) {
+	const ctx = useContext(TabsContext);
+	if (ctx.value !== value) {
+		return null;
+	}
 
-  return (
-    <div
-      data-slot="tabs-content"
-      role="tabpanel"
-      className={cn("outline-none", className)}
-      {...props}
-    />
-  );
+	return (
+		<div
+			className={cn("outline-none", className)}
+			data-slot="tabs-content"
+			role="tabpanel"
+			{...props}
+		/>
+	);
 }
 
-export { Tabs, TabsList, TabsTrigger, TabsContent };
+export { Tabs, TabsContent, TabsList, TabsTrigger };
