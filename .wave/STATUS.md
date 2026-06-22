@@ -15,20 +15,32 @@ READY_TO_RUN
 | INIT | ✅ DONE | SweetWave 初始化完成 |
 | BRIEF | ✅ DONE | INIT-BRIEF.md 已生成 |
 | PLAN | ✅ DONE | 19 个任务，质量门 PASSED |
-| SCAFFOLD | ⏳ PENDING | **等待用户手动执行 `/sw-scaffold`** |
-| RUN | ⏳ PENDING | — |
+| SCAFFOLD | ✅ READY | APP-SHELL-001 完成，等待用户检查 |
+| RUN | ⏳ PENDING | 待用户确认骨架后执行 |
 | RELEASE | ⏳ PENDING | — |
 
 ## 模块进度
 
-| 模块 | Design | UI | Arch | Spec | Tasks |
-|---|---|---|---|---|---|
-| auth | ✅ | ✅ | ✅ | ✅ | ✅ |
-| market-research | ✅ | ✅ | ✅ | ✅ | ✅ |
-| alpha-tracker | ✅ | ✅ | ✅ | ✅ | ✅ |
-| order-review | ✅ | ✅ | ✅ | ✅ | ✅ |
-| fund-analysis | ✅ | ✅ | ✅ | ✅ | ✅ |
-| app-shell | ✅ | ✅ | ✅ | ✅ | ✅（APP-SHELL-001 scaffold）|
+| 模块 | Design | UI | Arch | Spec | Tasks | 完成 |
+|---|---|---|---|---|---|---|
+| app-shell | ✅ | ✅ | ✅ | ✅ | ✅ | 1/1 ✅ |
+| auth | ✅ | ✅ | ✅ | ✅ | ✅ | 0/4 |
+| market-research | ✅ | ✅ | ✅ | ✅ | ✅ | 0/3 |
+| alpha-tracker | ✅ | ✅ | ✅ | ✅ | ✅ | 0/3 |
+| order-review | ✅ | ✅ | ✅ | ✅ | ✅ | 0/5 |
+| fund-analysis | ✅ | ✅ | ✅ | ✅ | ✅ | 0/3 |
+
+**总进度**: 1 / 19 任务完成
+
+## 前端骨架
+
+```
+READY — APP-SHELL-001 已完成 (2026-06-19)
+```
+
+## QA 累积
+
+- APP-SHELL-001: PASSED (`.wave/qa/app-shell/APP-SHELL-001-QA.md`)
 
 ## 物料清单
 
@@ -46,20 +58,9 @@ READY_TO_RUN
 | `.wave/specs/*/SPEC.md` | ✅ 全部 READY |
 | `.wave/specs/*/TASKS.md` | ✅ 全部 READY（19 个任务） |
 
-## 前端骨架
-
-```
-PENDING — 等待用户手动执行 /sw-scaffold
-```
-
 ## 下一步命令
 
 ```bash
-# 第一步：构建前端应用骨架（必须先执行，检查后再继续）
-/sw-scaffold
-
-# 骨架确认后：
-/sw-run --all                          # 全量自动执行所有任务
-/sw-run app-shell APP-SHELL-001        # 单独执行骨架任务
-/sw-run auth AUTH-001                  # 按任务 ID 执行
+# 骨架已就绪，检查页面结构后执行全量任务：
+/sw-run --all
 ```

@@ -1,10 +1,10 @@
 # TASKS: app-shell — 应用骨架
 
-> 状态：READY
+> 状态：DONE
 
 ---
 
-## APP-SHELL-001：构建应用骨架
+## [x] APP-SHELL-001：构建应用骨架
 
 - **任务类型**：scaffold
 - **执行角色**：frontend-engineer
@@ -24,13 +24,16 @@
 8. 所有业务页面为空占位（只含标题、说明、`<div>` 占位区）
 
 **骨架页验收标准**：
-- [ ] 路由树完整，所有 7 条路由可访问
-- [ ] 根布局 Header + Sidebar 正确渲染
-- [ ] 未登录访问 `/orders`、`/analysis`、`/settings` 时重定向 `/login`
-- [ ] 未绑定横幅占位元素存在（条件渲染逻辑已接入 AppContext）
-- [ ] 404 页面可访问（访问不存在路径）
-- [ ] 所有 packages/ui 新增组件通过 TypeScript 类型检查
-- [ ] `pnpm check-types` 通过
+- [x] 路由树完整，8 条路由可访问（新增 /register）
+- [x] 根布局 Sidebar + 内容区正确渲染（无 Header，改为侧边栏布局）
+- [x] 未登录访问 `/orders`、`/analysis`、`/settings` 时重定向 `/login`
+- [x] 未绑定横幅占位元素存在（条件渲染逻辑已接入 AppContext）
+- [x] 404 页面可访问（访问不存在路径）
+- [x] 所有 packages/ui 新增组件通过 TypeScript 类型检查
+- [x] `pnpm check-types` 通过
+
+**QA 报告**: `.wave/qa/app-shell/APP-SHELL-001-QA.md` — PASSED  
+**完成日期**: 2026-06-19
 
 **验证命令**：
 ```bash
