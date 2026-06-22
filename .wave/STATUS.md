@@ -25,12 +25,12 @@ READY_TO_RUN
 |---|---|---|---|---|---|---|
 | app-shell | ✅ | ✅ | ✅ | ✅ | ✅ | 1/1 ✅ |
 | auth | ✅ | ✅ | ✅ | ✅ | ✅ | 4/4 ✅ |
-| market-research | ✅ | ✅ | ✅ | ✅ | ✅ | 0/3 |
+| market-research | ✅ | ✅ | ✅ | ✅ | ✅ | 3/3 ✅ |
 | alpha-tracker | ✅ | ✅ | ✅ | ✅ | ✅ | 0/3 |
-| order-review | ✅ | ✅ | ✅ | ✅ | ✅ | 0/5 |
+| order-review | ✅ | ✅ | ✅ | ✅ | ✅ | 5/5 ✅ |
 | fund-analysis | ✅ | ✅ | ✅ | ✅ | ✅ | 0/3 |
 
-**总进度**: 5 / 19 任务完成
+**总进度**: 14 / 19 任务完成
 
 ## 前端骨架
 
@@ -42,6 +42,7 @@ READY — APP-SHELL-001 已完成 (2026-06-22)
 
 - APP-SHELL-001: PASSED (`.wave/qa/app-shell/APP-SHELL-001-QA.md`)
 - AUTH-001~004: PASSED (`.wave/qa/auth/AUTH-001-004-QA.md`)
+- ORDER-001~005: PASSED (`.wave/qa/order-review/MODULE-QA.md`)
 
 ## 物料清单
 
@@ -62,9 +63,7 @@ READY — APP-SHELL-001 已完成 (2026-06-22)
 ## 下一步命令
 
 ```bash
-# auth 模块完成，继续其他模块：
-/sw-run market-research --all    # 行情调研（MARKET-001~003）
-/sw-run order-review --all       # 订单复盘（ORDER-001~005）
+# order-review 模块完成，继续其他模块：
 /sw-run alpha-tracker --all      # Alpha 项目（ALPHA-001~003）
 /sw-run fund-analysis --all      # 资金曲线（ANALYSIS-001~003）
 ```
