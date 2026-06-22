@@ -16,6 +16,9 @@ const JSON_ARRAY_RE = /\[[\s\S]*\]/;
 
 // ─── Claude API helper ─────────────────────────────────────────────────────────
 async function callClaude(prompt: string): Promise<string> {
+	if (!env.ANTHROPIC_API_KEY) {
+		throw new Error("ANTHROPIC_API_KEY not configured");
+	}
 	const res = await fetch("https://api.anthropic.com/v1/messages", {
 		method: "POST",
 		headers: {
@@ -93,6 +96,9 @@ interface CryptoPanicPost {
 }
 
 async function fetchCryptoPanicNews(): Promise<CryptoPanicPost[]> {
+	if (!env.CRYPTOPANIC_API_KEY) {
+		throw new Error("CRYPTOPANIC_API_KEY not configured");
+	}
 	const url = `https://cryptopanic.com/api/v1/posts/?auth_token=${env.CRYPTOPANIC_API_KEY}&public=true&kind=news`;
 	const res = await fetch(url);
 	if (!res.ok) {

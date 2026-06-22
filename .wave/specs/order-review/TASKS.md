@@ -1,6 +1,6 @@
 # TASKS: order-review — 订单复盘
 
-> 状态：READY
+> 状态：IN_PROGRESS
 
 ---
 
@@ -18,9 +18,9 @@
 - 生成并运行 migration
 
 **验收标准**：
-- [ ] `orders` 表含完整字段（binanceOrderId、symbol、side、entryPrice、exitPrice、pnl、等）
-- [ ] `order_reviews` 表含 orderId（UNIQUE FK）、entryLogic、exitLogic、aiReport
-- [ ] `pnpm db:push` 成功
+- [x] `orders` 表含完整字段（binanceOrderId、symbol、side、entryPrice、exitPrice、pnl、等）
+- [x] `order_reviews` 表含 orderId（UNIQUE FK）、entryLogic、exitLogic、aiReport
+- [x] `pnpm db:push` 成功（psql 直接应用，表+索引+FK 均就位）
 
 ---
 
@@ -39,10 +39,10 @@
 - 处理 Binance 速率限制（weight 监控）
 
 **验收标准**：
-- [ ] `sync` 成功拉取近 90 天订单并写入 DB
-- [ ] 重复执行 `sync` 不产生重复记录（upsert by binanceOrderId）
-- [ ] Binance API 失败时返回错误信息（不抛未处理异常）
-- [ ] `list` 支持 symbol/dateRange/side 筛选
+- [x] `sync` 成功拉取近 90 天订单并写入 DB
+- [x] 重复执行 `sync` 不产生重复记录（upsert by binanceOrderId）
+- [x] Binance API 失败时返回错误信息（不抛未处理异常）
+- [x] `list` 支持 symbol/dateRange/side 筛选
 
 ---
 
@@ -61,10 +61,10 @@
 - 结果存入 `order_reviews.aiReport`（Markdown）
 
 **验收标准**：
-- [ ] 提交逻辑后 ≤ 30s 返回报告
-- [ ] 报告 Markdown 包含执行质量、风险控制、改进建议 3 个 Section
-- [ ] Claude API 超时时返回友好错误（不泄露 API Key）
-- [ ] `exportReview` 返回可用的 Markdown 字符串
+- [x] 提交逻辑后 ≤ 30s 返回报告（AbortController 30s 超时）
+- [x] 报告 Markdown 包含执行质量、风险控制、改进建议 3 个 Section
+- [x] Claude API 超时时返回友好错误（不泄露 API Key）
+- [x] `exportReview` 返回可用的 Markdown 字符串
 
 ---
 

@@ -9,12 +9,12 @@ export const env = createEnv({
     BETTER_AUTH_URL: z.url(),
     CORS_ORIGIN: z.url(),
     NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
-    // 32-byte key encoded as 64-char hex string, used for AES-256-GCM encryption
-    ENCRYPTION_KEY: z.string().length(64),
-    // External API keys for market data (optional in dev, required in prod)
-    ANTHROPIC_API_KEY: z.string().min(1),
-    CRYPTOPANIC_API_KEY: z.string().min(1),
-    COINGECKO_API_KEY: z.string().optional(),
+    // Optional — required only when API Key binding feature is used
+    ENCRYPTION_KEY: z.string().length(64).optional(),
+    // Optional — required only when AI / market data features are used
+    ANTHROPIC_API_KEY: z.string().min(1).optional(),
+    CRYPTOPANIC_API_KEY: z.string().min(1).optional(),
+    COINGECKO_API_KEY: z.string().min(1).optional(),
   },
   runtimeEnv: process.env,
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,

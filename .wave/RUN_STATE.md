@@ -5,38 +5,40 @@
 ## 状态
 
 ```
-IDLE
+RUNNING
 ```
 
 ## 当前节点
 
 ```
-N8_CHECKPOINT（完成）
+N2_SCHEDULE
 ```
 
 ## 执行范围
 
 ```
-ALL_MODULE_TASKS — market-research
+ALL_MODULE_TASKS — order-review
 ```
 
 ## 调度队列
 
-1. ~~MARKET-001（database-engineer）~~ ✅
-2. ~~MARKET-002（backend-engineer）~~ ✅
-3. ~~MARKET-003（frontend-engineer）~~ ✅
+1. ~~ORDER-001（database-engineer）~~ ✅
+2. ~~ORDER-002（backend-engineer）~~ ✅
+3. ~~ORDER-003（backend-engineer）~~ ✅
+4. ORDER-004（frontend-engineer）⬅ 当前
+5. ORDER-005（frontend-engineer）
 
 ## 当前任务
 
 ```
-market-research 模块全部完成
+ORDER-004 — 前端订单列表页 /orders
 ```
 
 ## 执行基线
 
-- Git commit：675e409
-- 工作区状态：modified（MARKET-001~003 完成，待提交）
-- 模式：--all（market-research 模块）
+- Git commit：4b88b15
+- 工作区状态：modified（ORDER-001~003 完成）
+- 模式：--all（order-review 模块）
 
 ## 恢复命令
 

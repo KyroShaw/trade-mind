@@ -1,3 +1,4 @@
+// biome-ignore lint/style/useFilenamingConvention: tRPC router convention uses camelCase filenames
 import { createCipheriv, createHmac, randomBytes } from "node:crypto";
 import { db } from "@trade-mind/db";
 import { apiKeys } from "@trade-mind/db/schema/auth";
@@ -9,6 +10,12 @@ import z from "zod";
 import { protectedProcedure, router } from "../index";
 
 function getEncryptionKey(): Buffer {
+	if (!env.ENCRYPTION_KEY) {
+		throw new TRPCError({
+			code: "PRECONDITION_FAILED",
+			message: "服务器未配置加密密钥，请联系管理员设置 ENCRYPTION_KEY",
+		});
+	}
 	return Buffer.from(env.ENCRYPTION_KEY, "hex");
 }
 
